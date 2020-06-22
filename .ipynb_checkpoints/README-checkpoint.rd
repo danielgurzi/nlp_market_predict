@@ -1,7 +1,7 @@
 
-# PROBLEM STATEMENT
+PROBLEM STATEMENT
 Most lay people don't make financial decisions in the stock market because they understand the numbers, at least not beyond buy low, sell high.  They do a bit of reading and then follow the trends. Financial analysts and stock brokers spend their entire day reading and studying what's happening with certain companies.
-I propose scraping financial sites such as www.seekingalpha.com and using NLP to predict stock fluctuations based on current sentiment around a given ticker symbol. I will study historical stock data around a given company, and establish a baseline solely based on recent stock price data. Then I will 'read' related articles posted about that company to get a sense of confidence around that particular stock. Using NLP vectorization, I can develop a model to predict if a given stock should be bought or sold today, with the ability to ask the question again each day. The success of the project will be measured by the accuracy of the predictions. 
+I propose using NLP to predict stock fluctuations based on current sentiment around a given ticker symbol. I will study historical stock data around a given company, and establish a baseline solely based on recent stock price data. Then I will 'read' related articles posted about that company to get a sense of confidence around that particular stock. Using NLP vectorization, I can develop a model to predict if a given stock should be bought or sold today, with the ability to ask the question again each day.
 
 
 RISKS: might not work. Probably will give me something, might not. Have to avoid getting IP flagged by websites
