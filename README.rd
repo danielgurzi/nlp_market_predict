@@ -21,4 +21,3 @@ can get stock info into a dataframe for analysis. yfinance brings a lot of info,
 Still working on beautifulsoup import to get the pages I want, how I want them.
 
 
-questions: 

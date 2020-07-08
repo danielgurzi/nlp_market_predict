@@ -1,0 +1,125 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access to this page has been denied.</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #000;
+    }
+
+    .container {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .container > div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container > div > div {
+      display: flex;
+      width: 80%;
+    }
+
+    .customer-logo-wrapper {
+      padding-top: 2rem;
+      flex-grow: 0;
+      background-color: #fff;
+    }
+
+    .customer-logo {
+      border-bottom: 1px solid #000;
+    }
+
+    .customer-logo > img {
+      padding-bottom: 1rem;
+      max-height: 50px;
+      max-width: 100%;
+    }
+
+    .page-title-wrapper {
+      flex-grow: 0;  /* was 2, but that pushed it too far down the page */
+    }
+
+    .page-title {
+      flex-direction: column-reverse;
+    }
+
+    .content-wrapper {
+      flex-grow: 5;
+    }
+
+    .content {
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      html, body {
+        height: 100%;
+      }
+    }
+  </style>
+  <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/NMoy4HgGiLr5NAQaEQa2ho8X/recaptcha__en.js"></script><script>
+    window._pxAppId = 'PXxgCxM9By';
+    window._pxJsClientSrc = '/xgCxM9By/init.js';
+    window._pxHostUrl = '/xgCxM9By/xhr';
+
+    startTime = Date.now();
+    window._pxOnCaptchaSuccess = function(isValid){
+      var solutionTime = Math.floor((Date.now() - startTime) / 1000);
+      var reload = function(){ top.location.reload(); };
+      sendEvent("captcha/solved?px_uuid=" + window._pxUuid + "&time_to_solution=" + solutionTime + '&isValid=' + isValid, reload);
+      setTimeout(reload, 700);
+    };
+
+    function sendEvent(event, onload){
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/_sa_track/" + event);
+      if (onload) xhr.addEventListener("load", onload);
+      xhr.send();
+    }
+  </script>
+<script type="text/javascript">window._pxVid = "ca9add13-c08d-11ea-b691-0242ac12000b";window._pxUuid = "f4082e40-c08d-11ea-93d5-ef5277c72879";</script><script src="https://www.recaptcha.net/recaptcha/api.js?hl=en-US"></script><script src="/xgCxM9By/init.js"></script></head>
+<body>
+<section class="container">
+  <div class="page-title-wrapper">
+    <div class="page-title">
+      <h1>Please click “I am not a robot” to continue</h1>
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="content">
+      <div id="px-captcha"><div class="g-recaptcha" data-sitekey="6Lcj-R8TAAAAABs3FrRPuQhLMbp5QrHsHufzLf7b" data-callback="handleCaptcha" data-theme="dark"><div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lcj-R8TAAAAABs3FrRPuQhLMbp5QrHsHufzLf7b&amp;co=aHR0cHM6Ly9zZWVraW5nYWxwaGEuY29tOjQ0Mw..&amp;hl=en&amp;v=NMoy4HgGiLr5NAQaEQa2ho8X&amp;theme=dark&amp;size=normal&amp;cb=ddm0qneqcocd" width="304" height="78" role="presentation" name="a-uka1t0tq96gq" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div></div>
+      <p></p>
+      <p>
+        To ensure this doesn’t happen in the future, please enable Javascript and cookies in your browser.<br>
+        Is this happening to you frequently? Please <a href="https://seekingalpha.userecho.com?source=captcha">report it on our feedback forum</a>.
+      </p>
+      <p>
+        If you have an ad-blocker enabled you may be blocked from proceeding. Please disable your ad-blocker and refresh.
+      </p>
+      <p>Reference ID: <span id="refid">f4082e40-c08d-11ea-93d5-ef5277c72879</span></p>
+    </div>
+  </div>
+  <script>
+    document.getElementById("refid").innerHTML = window._pxUuid;
+    sendEvent("captcha/shown?px_uuid=" + window._pxUuid);
+  </script>
+</section>
+
+<script src="/xgCxM9By/captcha/PXxgCxM9By/captcha.js?a=c&amp;m=0"></script>
+
+
+
+
+</body></html>
