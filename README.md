@@ -63,4 +63,5 @@ There are two data sources needed for this project:
     ├── model_1_training.ipynb
     ├── model_baseline.ipynb    
     └── ticker_info.ipynb
- ``
+└── jupyter_notebooks
+`
