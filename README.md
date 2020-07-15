@@ -61,5 +61,6 @@ There are two data sources needed for this project:
     ├── article_eda.ipynb
     ├── article_gather.ipynb
     ├── model_1_training.ipynb
+    ├── model_baseline.ipynb    
     └── ticker_info.ipynb
  ``

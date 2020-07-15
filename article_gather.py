@@ -8,10 +8,18 @@ import pickle
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
+import re
+import string
+import time
 
 from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn import cluster, metrics
+from sklearn.manifold import TSNE
+from scipy.spatial.distance import cdist
 
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Dense, Dropout, GRU
@@ -20,8 +28,6 @@ from tensorflow.keras.preprocessing.sequence import TimeseriesGenerator
 
 from datetime import date, timedelta, datetime
 from gensim.models import Word2Vec, KeyedVectors
-import string
-import re
 
 import yfinance as yf
 
@@ -42,6 +48,12 @@ def articles(ticker):
         driver = webdriver.Chrome('./chromedriver')
         driver.implicitly_wait(50)
         driver.get(url)
+        while True:
+            time.sleep(10)
+            if driver.find_elements_by_class_name("_1-r1S"):
+                break
+        links = driver.find_elements_by_class_name("_1-r1S")
+
         # gather the links for the most recent articles
         links = driver.find_elements_by_class_name("_1-r1S")
 
@@ -56,9 +68,6 @@ def articles(ticker):
         # Clean it up to take out special characters from the article name
         df['name'] = [re.sub('[^A-Za-z0-9 $]+', '', i) for i in df['name']]
 
-        # save info to dataframe
-        df.to_csv(f'./data/{ticker}_link_history.csv')
-
         return df
 
     def get_articles(ticker):
@@ -69,12 +78,20 @@ def articles(ticker):
         driver = webdriver.Chrome('./chromedriver')
         #start a list of the articles
         art_list = []
-        # grap the comments while I'm here
-        comments = []
         # for loop to go through each of the links and grab the articles
-        for l in df['href']:
-            driver.get(l)
-            driver.implicitly_wait(50)
+        for link in df['href']:
+            driver.get(link)
+            while True:
+                try:
+                    driver.find_element_by_id("a-cont")
+                    break
+                except:
+                    pass
+                try:
+                    driver.find_element_by_class_name('premium-banner')
+                    break
+                except:
+                    pass
             try:
                 article = driver.find_element_by_id("a-cont")
             except:
@@ -85,10 +102,6 @@ def articles(ticker):
                 art_list.append(article.text.split(sep,1)[0])
             except:
                 art_list.append('error')
-            try:
-                comments.append(article.text.split(sep,1)[1])
-            except:
-                comments.append('error')
         df['article'] = art_list
 
         # close the Seleium driver
@@ -129,9 +142,9 @@ def articles(ticker):
         return df
 
     # run this new function to catch and sort errors
-    df1 = finish_qurom(df)
+#     df1 = finish_qurom(df)
 
-    df = df1[df1.article != 'premium-banner']
+    df = df[df.article != 'premium-banner']
 
 
     print("Articles gathered...vectorizing")
@@ -271,5 +284,5 @@ def articles(ticker):
         return f'Today we are predicting you should SELL {ticker} stock'
     else:
         return f'Today we are predicting a HOLD for {ticker} stock'
-
+     
 articles(ticker)
